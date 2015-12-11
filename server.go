@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
-	http.Handle("/", handlers.Home)
+	http.Handle("/", &handlers.Home{})
+	http.Handle("/img", &handlers.ImageView{})
 	http.ListenAndServe(":8080", nil)
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>View image</title>
+</head>
+
+<body>
+  <header>
+    <hgroup>
+      <h1>Просмотр изображения</h1>
+      <h2>{{ .Title }}</h2>
+    </hgroup>
+  </header>
+  <section id="image">
+    <article>
+      <img id="img-view" src="{{ .ImageViewPath }}">
+    </article>
+    <article>
+      <p class="img-caption">{{ .Caption }}</p>
+    </article>
+  </section>          
+</body>
+</html>
