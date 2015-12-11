@@ -8,7 +8,7 @@ import (
 )
 
 // TemplateDir is a directory, where handlers should search templates
-const TemplateDir = "templates"
+const TemplateDir = "handlers/templates"
 
 // TemplateHandler is a basic type for handler using template
 type TemplateHandler struct {
@@ -28,7 +28,7 @@ type TemplateHandlerWData struct {
 }
 
 // ServeHTTP method to implement http.Handler interface
-func (h TemplateHandler) ServeHTTP(w http.ResponseWriter, r *http.ReadRequest) {
+func (h TemplateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	h.once.Do(func() {
 		templatePath := filepath.Join(TemplateDir, h.TemplateName)
 		h.Template = template.Must(template.ParseFiles(templatePath))
@@ -37,7 +37,7 @@ func (h TemplateHandler) ServeHTTP(w http.ResponseWriter, r *http.ReadRequest) {
 }
 
 // ServeHTTP method to implement http.Handler interface
-func (h TemplateHandlerWData) ServeHTTP(w http.ResponseWriter, r *http.ReadRequest) {
+func (h TemplateHandlerWData) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	h.once.Do(func() {
 		templatePath := filepath.Join(TemplateDir, h.TemplateName)
 		h.Template = template.Must(template.ParseFiles(templatePath))
