@@ -2,14 +2,11 @@ package main
 
 import (
 	"net/http"
-	"fmt"
+
+	"github.com/VeselovAlex/imgservice/handlers"
 )
 
-func handleHome(w http.ResponseWriter, r * http.Request) {
-	fmt.Fprintln(w, "<h1>Hello, world</h1>")
-}
-
 func main() {
-	http.HandleFunc("/", handleHome)
+	http.Handle("/", handlers.Home)
 	http.ListenAndServe(":8080", nil)
 }
